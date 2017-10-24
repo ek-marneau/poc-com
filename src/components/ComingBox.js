@@ -3,50 +3,39 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-  gridList: {
-    width: 500,
-    height: 450,
-    overflowY: 'auto',
-  },
-};
+import '../styles/ComingBox.css';
+import { getRandomImage, getRandomName, getRandomCity } from '../helpers/faker-helper';
 
 const tilesData = [
   {
-    img: 'styles/pictures/personne-1.jpg',
-    title: 'Breakfast',
-    author: 'jill111',
+    img: getRandomImage(),
+    title: getRandomCity(),
+    author: getRandomName(),
   },
   {
-    img: '../styles/pictures/personne-2.jpg',
-    title: 'Tasty burger',
-    author: 'pashminu',
+    img: getRandomImage(),
+    title: getRandomCity(),
+    author: getRandomName(),
   },
   {
-    img: 'styles/pictures/personne-3.jpg',
-    title: 'Camera',
-    author: 'Danson67',
+    img: getRandomImage(),
+    title: getRandomCity(),
+    author: getRandomName(),
   },
   {
-    img: 'styles/pictures/personne-4.jpg',
-    title: 'Morning',
-    author: 'fancycrave1',
+    img: getRandomImage(),
+    title: getRandomCity(),
+    author: getRandomName(),
   },
   {
-    img: 'styles/pictures/personne-5.jpg',
-    title: 'Hats',
-    author: 'Hans',
+    img: getRandomImage(),
+    title: getRandomCity(),
+    author: getRandomName(),
   },
   {
-    img: 'styles/pictures/personne-6.jpg',
-    title: 'Honey',
-    author: 'fancycravel',
+    img: getRandomImage(),
+    title: getRandomCity(),
+    author: getRandomName(),
   },
 ];
 
@@ -55,17 +44,29 @@ class ComingBox extends Component {
 
   render() {
     return (
-        <div style={styles.root}>
+        <div className="coming-box">
           <GridList
               cellHeight={180}
-              style={styles.gridList}
+              className="grid-list"
           >
-            <Subheader>December</Subheader>
+            <Subheader>Novembre</Subheader>
             {tilesData.map((tile) => (
                 <GridTile
                     key={tile.img}
                     title={tile.title}
-                    subtitle={<span>by <b>{tile.author}</b></span>}
+                    subtitle={<span><b>{tile.author}</b></span>}
+                    actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+                >
+                  <img src={tile.img} />
+                </GridTile>
+            ))}
+
+            <Subheader>Décembre</Subheader>
+            {tilesData.map((tile) => (
+                <GridTile
+                    key={tile.img}
+                    title={tile.title}
+                    subtitle={<span><b>{tile.author}</b></span>}
                     actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
                 >
                   <img src={tile.img} />

@@ -1,0 +1,13 @@
+.coming-box {
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.grid-list {
+  width: 500px;
+  height: 700px;
+  overflow-y: auto;
+}
+
+
+
